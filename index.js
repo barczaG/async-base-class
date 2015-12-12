@@ -7,7 +7,6 @@ class AsyncClass {
 	constructor () {
 		var proto = Object.getPrototypeOf(this);
 		var classMethods = Object.getOwnPropertyNames(proto);
-		console.log(classMethods);
 		
 		classMethods.forEach(function(method) {
 		    var methodName = method;

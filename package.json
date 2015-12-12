@@ -1,15 +1,24 @@
 {
   "name": "async-base-class",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "barczaG, csakbalint",
   "license": "ISC",
   "dependencies": {
     "bluebird": "^3.0.6",
     "co": "^4.6.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barczaG/async-base-class.git"
+  },
+  "bugs": {
+    "url": "https://github.com/barczaG/async-base-class/issues"
+  },
+  "homepage": "https://github.com/barczaG/async-base-class#readme",
+  "description": ""
 }
