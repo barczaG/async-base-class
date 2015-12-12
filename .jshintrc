@@ -1,0 +1,8 @@
+{
+  "undef": true,
+  "unused": true,
+  "predef": [ "before", "describe", "it", "-Promise" ],
+  "newcap":false,
+  "node": true,
+  "esnext": true
+}
