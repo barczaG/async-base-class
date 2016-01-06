@@ -1,6 +1,5 @@
 'use strict';
 const Promise = require('bluebird');
-const co = require('co');
 
 /**
  * Wraps static and instance methods whose name ends with Async, or are
@@ -80,13 +79,14 @@ function wrapFunctions(target, methodNames) {
     }
 
     var newKey = key.substring(0, key.length - 5);
-    if (target[key].constructor.name === 'GeneratorFunction') {
-      target[newKey] = Promise.coroutine(target[key]);
-    } else {
-      target[newKey] = Promise.method(target[key]);
-    }
+    target[newKey] = wrapFunction(target[key]);
     delete target[key];
   });
+}
+
+function wrapFunction(fn) {
+
+  return fn.constructor.name === 'GeneratorFunction' ? Promise.coroutine(fn) : Promise.method(fn);
 }
 
 function _actualMethodKeys(target) {
@@ -100,6 +100,7 @@ function _actualMethodKeys(target) {
 
 module.exports = {
   wrap,
+  wrapFunction,
   wrapStaticMethods,
   wrapInstanceMethods
 };
